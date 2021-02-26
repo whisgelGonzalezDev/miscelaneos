@@ -1,0 +1,26 @@
+<div [ngClass]=" alerta " class="alert" role="alert">
+    A simple secondary alert—check it out!
+</div>
+
+<button class="btn btn-info" (click)="alerta = 'alert-info'">Informacion</button>
+
+<button class="btn btn-success" (click)="alerta = 'alert-success'">Terminado</button>
+
+<br><br>
+
+<h3 [ngClass]=" { 'text-danger': !propiedad.color, 'text-info': propiedad.color } ">
+    Hola mundo
+</h3>
+
+<button (click)="propiedad.color = !propiedad.color" class="btn" [ngClass]=" { 'btn-danger': !propiedad.color, 'btn-info': propiedad.color } ">
+Cambiar
+</button>
+
+<br><br>
+
+<h3>Proceso Asíncrono</h3>
+<button class="btn btn-primary" (click)="clickEjecutar()" [disabled]="loading">
+    <i [ngClass]=" {'fa-save': !loading, 'fa-redo fa-spin': loading} " class="fa"></i>
+    <span *ngIf="!loading">  Guardar cambios</span>
+    <span *ngIf="loading">   Guardando</span>
+</button>
